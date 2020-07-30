@@ -8,6 +8,7 @@ A standard SSH jail with a 10 minute lockout after 3 failed attempts
 ## Default variables
 | Name | Type | Value | Purpose |
 | ---- | ---- | ----- | ------- |
+| fail2ban_ignoreip      | CSV     | ''           | comma (or space) separated list of IPs to never ban |
 | fail2ban_pkgs          | list    | ['fail2ban'] | which packages to install |
 | fail2ban_refresh_cache | Boolean | true         | whether to refresh package cache before install |
 | fail2ban_state         | string  | present      | set to absent to remove the package |
@@ -22,6 +23,5 @@ None
 Tested on Ubuntu but should work on any modern Debian distribution
 
 ## Todo
-- pass list of IPs to DEFAULT.ignore config
 - support RH based distros
 ---
