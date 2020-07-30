@@ -1,0 +1,7 @@
+---
+- name: handler_restart_fail2ban
+  systemd:
+    state: restarted
+    name: '{{fail2ban_svc_name}}'
+  become: true
+...
