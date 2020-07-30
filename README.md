@@ -21,4 +21,7 @@ None
 ## Supported distros
 Tested on Ubuntu but should work on any modern Debian distribution
 
+## Todo
+- pass list of IPs to DEFAULT.ignore config
+- support RH based distros
 ---
