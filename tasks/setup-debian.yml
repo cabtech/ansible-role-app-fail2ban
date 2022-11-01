@@ -1,9 +1,9 @@
 ---
 # --------------------------------
 
-- name: "Install packages (with update)"
+- name: "Install Debian packages (with update)"
   ansible.builtin.apt:
-    name: "{{ fail2ban_pkgs }}"
+    name: "{{ fail2ban_pkgs_common.debian }}"
     state: "{{ fail2ban_state }}"
     update_cache: "{{ fail2ban_refresh_cache }}"
   become: true
