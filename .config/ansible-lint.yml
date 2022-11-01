@@ -1,0 +1,9 @@
+---
+skip_list:
+- command-instead-of-module  # FIXME
+- command-instead-of-shell  # FIXME
+- meta-no-info
+- risky-shell-pipe  # FIXME
+- role-name
+- yaml[indentation]
+...
