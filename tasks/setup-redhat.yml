@@ -1,0 +1,13 @@
+---
+# --------------------------------
+
+- name: "Install packages (with update)"
+  ansible.builtin.yum:
+    name: "{{ fail2ban_pkgs }}"
+    state: "{{ fail2ban_state }}"
+    update_cache: "{{ fail2ban_refresh_cache }}"
+  become: true
+  tags: ["ct-fail2ban"]
+
+# --------------------------------
+...
