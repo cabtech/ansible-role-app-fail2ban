@@ -1,15 +1,11 @@
 ---
 # --------------------------------
 
-- name: "RedHat tasks"
+- name: "Distro specific tasks"
   ansible.builtin.include_tasks:
-    file: setup-redhat.yml
-  when: ct_family == "redhat"
-
-- name: "Debian tasks"
-  ansible.builtin.include_tasks:
-    file: setup-debian.yml
-  when: ct_family == "debian"
+    file: setup-{{ ct_family }}.yml
+  when: ct_family == "redhat" or ct_family == "debian"
+  tags: ["ct-fail2ban"]
 
 - name: "Render jail.local config"
   ansible.builtin.template:
