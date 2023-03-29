@@ -1,29 +1,31 @@
 ---
 # --------------------------------
 
-- include_tasks: setup-redhat.yml
+- name: "RedHat tasks"
+  ansible.builtin.include_tasks: setup-redhat.yml
   when: ct_family == "redhat"
 
-- include_tasks: setup-debian.yml
+- name: "Debian tasks"
+  ansible.builtin.include_tasks: setup-debian.yml
   when: ct_family == "debian"
 
 - name: "Render jail.local config"
   ansible.builtin.template:
-    src: jail.local.j2
     dest: /etc/fail2ban/jail.local
-    owner: root
     group: root
     mode: "0600"
+    owner: root
+    src: jail.local.j2
   register: reg_config
   notify: HandlerRestartFail2ban
   become: true
   tags: ["ct-fail2ban"]
 
-- name: "Configure {{ fail2ban_svc_name }} service"
+- name: "Configure fail2ban service"
   ansible.builtin.systemd:
+    enabled: "{{ fail2ban_svc_enabled }}"
     name: "{{ fail2ban_svc_name }}"
     state: "{{ fail2ban_svc_state }}"
-    enabled: "{{ fail2ban_svc_enabled }}"
   become: true
   tags: ["ct-fail2ban"]
 
