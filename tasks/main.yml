@@ -2,11 +2,13 @@
 # --------------------------------
 
 - name: "RedHat tasks"
-  ansible.builtin.include_tasks: setup-redhat.yml
+  ansible.builtin.include_tasks:
+    file: setup-redhat.yml
   when: ct_family == "redhat"
 
 - name: "Debian tasks"
-  ansible.builtin.include_tasks: setup-debian.yml
+  ansible.builtin.include_tasks:
+    file: setup-debian.yml
   when: ct_family == "debian"
 
 - name: "Render jail.local config"
