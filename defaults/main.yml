@@ -1,7 +1,7 @@
 ---
 fail2ban_ignoreip: ""
 fail2ban_pkgs_common:
-  debian: ["python3-apt", "fail2ban"]
+  debian: ["python3-apt", "fail2ban", "rsyslog"]
   redhat: ["fail2ban"]
 fail2ban_refresh_cache: true
 fail2ban_state: present
