@@ -1,5 +1,6 @@
 ---
 fail2ban_ignoreip: ""
+fail2ban_ignore_addrs: []
 fail2ban_pkgs_common:
   debian: ["python3-apt", "fail2ban", "rsyslog"]
   redhat: ["fail2ban"]

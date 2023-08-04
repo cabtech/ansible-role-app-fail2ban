@@ -1,6 +1,6 @@
 # MANAGED_BY_ANSIBLE
 [DEFAULT]
-ignoreip = 127.0.0.1/8 ::1 {{fail2ban_ignoreip}}
+ignoreip = 127.0.0.1/8 ::1 {{ fail2ban_ignoreip }} {{ fail2ban_ignore_addrs | join(' ') }}
 
 [sshd]
 enabled = true
