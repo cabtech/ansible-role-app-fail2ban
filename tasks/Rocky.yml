@@ -9,7 +9,7 @@
   become: true
   tags: ["ct-fail2ban"]
 
-- name: "Rock : Install packages (with update)"
+- name: "Rocky : Install packages (with update)"
   ansible.builtin.dnf:
     name: "{{ fail2ban_pkgs_common.redhat }}"
     state: "{{ fail2ban_state }}"
