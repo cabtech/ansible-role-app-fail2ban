@@ -1,7 +1,7 @@
 ---
 # --------------------------------
 
-- name: "Install RedHat packages (with update)"
+- name: "RedHat : Install packages (with update)"
   ansible.builtin.yum:
     name: "{{ fail2ban_pkgs_common.redhat }}"
     state: "{{ fail2ban_state }}"

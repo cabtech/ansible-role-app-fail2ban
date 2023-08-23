@@ -1,0 +1,21 @@
+---
+# --------------------------------
+
+- name: "Rocky : Install EPEL"
+  ansible.builtin.dnf:
+    name: epel-release
+    state: present
+    update_cache: true
+  become: true
+  tags: ["ct-fail2ban"]
+
+- name: "Rock : Install packages (with update)"
+  ansible.builtin.dnf:
+    name: "{{ fail2ban_pkgs_common.redhat }}"
+    state: "{{ fail2ban_state }}"
+    update_cache: "{{ fail2ban_refresh_cache }}"
+  become: true
+  tags: ["ct-fail2ban"]
+
+# --------------------------------
+...

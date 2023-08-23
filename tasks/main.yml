@@ -1,11 +1,19 @@
 ---
 # --------------------------------
 
-- name: "Distro specific tasks"
+- name: "Include tasks (FF)"
   ansible.builtin.include_tasks:
-    file: setup-{{ ct_family }}.yml
-  when: ct_family == "redhat" or ct_family == "debian"
-  tags: ["ct-fail2ban"]
+    file: "{{ lookup('ansible.builtin.first_found', params) }}"
+  vars:
+    params:
+      files:
+      - "{{ ansible_distribution }}-{{ ansible_distribution_major_version.split('.')[0] }}.yml"
+      - "{{ ansible_distribution }}.yml"
+      - "{{ ansible_os_family }}.yml"
+      - default.yml
+      paths:
+      - "tasks"
+  tags: [ct-fail2ban]
 
 - name: "Render jail.local config"
   ansible.builtin.template:
@@ -17,7 +25,7 @@
   register: reg_config
   notify: HandlerRestartFail2ban
   become: true
-  tags: ["ct-fail2ban"]
+  tags: [ct-fail2ban]
 
 - name: "Configure fail2ban service"
   ansible.builtin.systemd:
@@ -25,7 +33,7 @@
     name: "{{ fail2ban_svc_name }}"
     state: "{{ fail2ban_svc_state }}"
   become: true
-  tags: ["ct-fail2ban"]
+  tags: [ct-fail2ban]
 
 # --------------------------------
 ...
