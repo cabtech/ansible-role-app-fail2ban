@@ -1,6 +1,3 @@
 ---
-dependencies:
-- src: git+https://github.com/cabtech/ansible-role-util-facts.git
-  tags: [ct-fail2ban]
-  version: "1.3.0"
+dependencies: []
 ...
