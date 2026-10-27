@@ -8,10 +8,6 @@ lint: .ylint .alint
 	uv run yamllint --config-file=.config/yamllint .
 	@touch $@
 
-push:
-	@mkdir -p /mnt/hgfs/shared/ansible-role-app-fail2ban
-	rsync -a .config .gitignore [A-z]* /mnt/hgfs/shared/ansible-role-app-fail2ban
-
 # --------------------------------
 
 .PHONY: clean
