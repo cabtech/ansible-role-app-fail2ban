@@ -1,6 +1,11 @@
 ---
 # --------------------------------
 
+- name: "Include variables wrapper"
+  ansible.builtin.include_tasks:
+    file: variables.yml
+  tags: ["ct-fail2ban"]
+
 - name: "Include tasks (FF)"
   ansible.builtin.include_tasks:
     file: "{{ lookup('ansible.builtin.first_found', params) }}"
@@ -13,7 +18,7 @@
       - default.yml
       paths:
       - "tasks"
-  tags: [ct-fail2ban]
+  tags: ["ct-fail2ban"]
 
 - name: "Render jail.local config"
   ansible.builtin.template:
@@ -25,7 +30,7 @@
   register: reg_config
   notify: HandlerRestartFail2ban
   become: true
-  tags: [ct-fail2ban]
+  tags: ["ct-fail2ban"]
 
 - name: "Configure fail2ban service"
   ansible.builtin.systemd:
@@ -33,7 +38,7 @@
     name: "{{ fail2ban_svc_name }}"
     state: "{{ fail2ban_svc_state }}"
   become: true
-  tags: [ct-fail2ban]
+  tags: ["ct-fail2ban"]
 
 # --------------------------------
 ...
