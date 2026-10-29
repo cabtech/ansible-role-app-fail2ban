@@ -3,7 +3,7 @@
 
 - name: "RedHat : Install packages (with update)"
   ansible.builtin.dnf:
-    name: "{{ fail2ban_pkgs_common.redhat }}"
+    name: "{{ fail2ban_pkgs_common }}"
     state: "{{ fail2ban_state }}"
     update_cache: "{{ fail2ban_refresh_cache }}"
   become: true

@@ -1,0 +1,7 @@
+---
+# --------------------------------
+
+fail2ban_pkgs_common: ["python3-apt", "fail2ban", "inetutils-syslogd"]
+
+# --------------------------------
+...
