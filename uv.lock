@@ -62,7 +62,7 @@ wheels = [
 ]
 
 [[package]]
-name = "ansible-role-app-fail2ban"
+name = "ansible-role-ct-fail2ban"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [

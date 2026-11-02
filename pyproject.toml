@@ -1,5 +1,5 @@
 [project]
-name = "ansible-role-app-fail2ban"
+name = "ansible-role-ct-fail2ban"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -16,7 +16,7 @@ dependencies = [
 ]
 
 [project.scripts]
-ansible-role-app-fail2ban = "ansible_role_app_fail2ban:main"
+ansible-role-ct-fail2ban = "ansible_role_ct_fail2ban:main"
 
 [build-system]
 requires = ["uv_build>=0.12.21,<0.13.0"]

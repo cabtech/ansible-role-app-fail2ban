@@ -1,5 +1,5 @@
 ----
-# ansible-role-app-fail2ban
+# ansible-role-ct-fail2ban
 Install and configure [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page) on Ubuntu and RedHat based distros
 
 ## Jails
